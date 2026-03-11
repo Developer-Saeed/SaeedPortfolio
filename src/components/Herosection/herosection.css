@@ -1,0 +1,63 @@
+.herosection{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+gap: 2rem;
+ height: calc(100vh - 80px);
+    background-color: #f9f9f9;
+    width: 100%;
+}
+.profile-picture {
+    width: 250px;
+    height: 250px;
+    background-color: #ffffff;
+    border-radius: 50%;
+
+}
+
+.profile-picture img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.main-title {
+    font-size: 3rem;
+    color: #333333;
+    width: 80%;
+    text-align: center;
+    line-height: 3rem;
+    margin-left: 10rem;
+    padding-bottom: 1rem;
+}
+.main-title span {
+    background: #833AB4;
+    background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.main-detail {
+    font-size: 1rem;
+    color: #666666;
+    width: 60%;
+    text-align: center;
+    margin-left: 20rem;
+}
+.buttons {
+    display: flex;
+    gap: 20px;
+}
+.buttons button {
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+    color: #262626;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+.buttons button:hover {
+    background-color: #262626;
+    color: #f0f0f0;
+    transition: all 0.3s ease;
+}
