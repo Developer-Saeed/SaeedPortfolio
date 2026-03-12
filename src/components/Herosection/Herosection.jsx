@@ -1,5 +1,5 @@
 import './herosection.css'
-function Herosection() {
+function Herosection () {
   return (
     <div className='herosection'>
       <div className='profile-picture'>
