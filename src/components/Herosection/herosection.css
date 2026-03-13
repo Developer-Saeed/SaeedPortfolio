@@ -61,3 +61,51 @@ gap: 2rem;
     color: #f0f0f0;
     transition: all 0.3s ease;
 }
+/* 📱 Tablet */
+@media (max-width: 1024px) {
+    .main-title {
+        font-size: 2.5rem;
+        width: 90%;
+    }
+    .main-detail {
+        width: 80%;
+    }
+}
+/* 📱 Mobile */
+@media (max-width: 768px) {
+    .profile-picture {
+        width: 180px;
+        height: 180px;
+    }
+    .main-title {
+        font-size: 1.8rem;
+        width: 100%;
+        line-height: 2.2rem;
+    }
+    .main-detail {
+        width: 100%;
+        font-size: 0.95rem;
+    }
+    .buttons {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+    .buttons button {
+        width: 80%;
+    }
+}
+/* 📱 Small Mobile */
+@media (max-width: 480px) {
+    .profile-picture {
+        width: 150px;
+        height: 150px;
+    }
+    .main-title {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+    .main-detail {
+        font-size: 0.9rem;
+    }
+}
