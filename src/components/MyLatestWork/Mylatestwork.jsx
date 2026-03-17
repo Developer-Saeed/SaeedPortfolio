@@ -1,5 +1,8 @@
 import './mylatestwork.css'
+
 const MyLatestWork = () => {
+
+
   let latestWorkData = [
     {
       id: 1,
@@ -32,10 +35,15 @@ const MyLatestWork = () => {
       picture: "https://greatstack.in/portfolio/assets/project_2-ko3fLZz-.svg",
     },
   ]
+
   return (
     <div className='latestwork'>
+
       <h1>My Latest Work</h1>
+
+
       <div className='cards-container'>
+
         {
           latestWorkData.map((item) => (
             <div className='latestwork-ui'>
@@ -45,6 +53,8 @@ const MyLatestWork = () => {
             </div>
           ))
         }
+
+
       </div>
     </div>
   )

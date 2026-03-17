@@ -1,20 +1,43 @@
 import React from 'react'
 import Header from './components/Header/Header'
-import Herosection from './components/Herosection/Herosection'
-import AboutMe from './components/AboutMe/Aboutme'
-import MyServices from './components/MyServices/Myservices'
-import MyLatestWork from './components/MyLatestWork/Mylatestwork'
-import GetInTouch from './components/GetInTouch/Getintouch'
+import HeroSection from './components/HeroSection/HeroSection'
+import AboutMe from './components/AboutMe/AboutMe'
+import MyServices from './components/MyServices/MyServices'
+import MyLatestWork from './components/MyLatestWork/MyLatestWork'
+import GetInTouch from './components/GetInTouch/GetInTouch'
+import { Element } from 'react-scroll'
+
+const App = () => {
 
 
-function App() {
   return (
     <div>
+
       <Header />
-      <Herosection />
-      <AboutMe />
-      <MyServices />
-      <MyLatestWork />
+
+
+      <Element name='home'>
+        <HeroSection />
+      </Element>
+
+      <Element name='aboutme'>
+        <AboutMe />
+      </Element>
+
+      <Element name='services'>
+        <MyServices />
+      </Element>
+
+      <Element name='portfolio'>
+        <MyLatestWork />
+      </Element>
+
+      <Element name='contact'>
+        <GetInTouch />
+      </Element>
+
+
+
     </div>
   )
 }

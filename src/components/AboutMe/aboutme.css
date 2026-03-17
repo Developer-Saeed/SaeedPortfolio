@@ -7,7 +7,9 @@
     background-color: #ffffff;
     border-radius: 0 0 2rem 2rem;
 }
+
 /* Bottom Layout */
+
 .aboutme-bottom {
     display: flex;
     align-items: center;
@@ -17,7 +19,9 @@
     width: 100%;
     max-width: 1100px;
 }
+
 /* Image */
+
 .aboutme-image {
     width: 370px;
     height: 350px;
@@ -25,20 +29,25 @@
     border-radius: 10%;
     flex-shrink: 0;
 }
+
 .aboutme-image img {
     width: 100%;
     height: 100%;
     border-radius: 10%;
     object-fit: cover;
 }
+
 /* Right Section */
+
 .aboutme-bottom-right {
     display: flex;
     flex-direction: column;
     gap: 20px;
     width: 100%;
 }
+
 /* Paragraph */
+
 .aboutme-paragraph {
     font-size: 1.2rem;
     color: #333333;
@@ -47,25 +56,32 @@
     flex-direction: column;
     gap: 20px;
 }
+
 /* Skills Container */
+
 .aboutme-skills {
     display: flex;
     flex-direction: column;
     gap: 20px;
     width: 100%;
 }
+
 /* Each Skill Row */
+
 .bar-section {
     display: flex;
     flex-direction: column;
     gap: 8px;
     width: 100%;
 }
+
 .bar-section h3 {
     font-size: 1rem;
     font-weight: 600;
 }
+
 /* Skill Bar */
+
 .aboutme-skill {
     position: relative;
     width: 100%;
@@ -75,7 +91,9 @@
     border-radius: 1rem;
     overflow: hidden;
 }
+
 /* Skill Fill */
+
 .aboutme-skill span {
     position: absolute;
     top: 0;
@@ -83,20 +101,27 @@
     height: 100%;
     border-radius: 1rem;
 }
+
 /* Skill Widths */
+
 .htmlcss {
     width: 60%;
 }
+
 .javascript {
     width: 90%;
 }
+
 .react {
     width: 84%;
 }
+
 .nodejs {
     width: 78%;
 }
+
 /* Percentage Labels */
+
 .aboutme-skill span::before {
     position: absolute;
     right: 8px;
@@ -104,36 +129,47 @@
     font-size: 0.9rem;
     color: #000;
 }
+
 .htmlcss::before {
     content: "60%";
 }
+
 .javascript::before {
     content: "90%";
 }
+
 .react::before {
     content: "84%";
 }
+
 .nodejs::before {
     content: "78%";
 }
+
 /* ================= */
 /* Tablet */
 /* ================= */
+
 @media (max-width: 1024px) {
+
     .aboutme-bottom {
         gap: 30px;
     }
+
     .aboutme-image {
         width: 300px;
         height: 280px;
     }
+
     .aboutme-paragraph {
         font-size: 1.1rem;
     }
 }
+
 /* ================= */
 /* Mobile */
 /* ================= */
+
 @media (max-width: 768px) {
 
     .aboutme-bottom {
@@ -142,45 +178,57 @@
         text-align: center;
         gap: 40px;
     }
+
     .aboutme-image {
         width: 220px;
         height: 220px;
     }
+
     .aboutme-bottom-right {
         width: 100%;
         align-items: center;
     }
+
     .aboutme-paragraph {
         font-size: 1rem;
         width: 100%;
     }
+
     .aboutme-skills {
         width: 100%;
         align-items: stretch;
     }
+
     .bar-section {
         width: 100%;
         text-align: left;
     }
+
     .aboutme-skill {
         width: 100%;
         max-width: 100%;
     }
 }
+
 /* ================= */
 /* Small Mobile */
 /* ================= */
+
 @media (max-width: 480px) {
+
     .aboutme-title {
         font-size: 2rem;
     }
+
     .aboutme-image {
         width: 180px;
         height: 180px;
     }
+
     .aboutme-paragraph {
         font-size: 0.95rem;
     }
+
     .aboutme-skill span::before {
         font-size: 0.8rem;
         top: -18px;
