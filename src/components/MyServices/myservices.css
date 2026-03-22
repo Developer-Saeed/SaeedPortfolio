@@ -1,56 +1,94 @@
+/* =========================================
+   1. Section Container
+   ========================================= */
 .services {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-        padding: 50px 20px;
-    background-color: #f5f5f5;
-    gap: 2rem;
-    border-radius:2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 20px;
+  background-color: #f5f5f5;
+  gap: 3rem;
+  border-radius: 2rem;
+  margin: 20px; /* Adds breathing room from screen edges */
 }
-
-
-.card-ui {
-
-    border: 2px solid black;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    gap: 0.7rem;
-
-    border-radius: 1rem;
-
-    width: 360px;
-
-    background-color: rgb(248, 248, 248);
-
-    cursor: pointer;
+.services h2 {
+  font-size: 2.5rem;
+  color: #333;
 }
-
-
-.card-ui:hover {
-    transform: scale(1.05);
-    transition: transform 0.5s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    background-color: rgb(230, 230, 230)
-}
-
+/* =========================================
+   2. Grid Container (Improved from Flex)
+   ========================================= */
 .cards-container {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  justify-items: center;
 }
+/* =========================================
+   3. Card Styling
+   ========================================= */
+.service-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Changed 'start' to standard value */
+  gap: 1rem;
+  padding: 2rem;
+  /* Responsive Width */
+  width: 100%;
+  max-width: 360px;
+  /* Design Polish */
+  border: 1px solid #e0e0e0; /* Softer than black */
+  border-radius: 1rem;
+  background-color: #fff;
+  cursor: pointer;
 
-
-.card-ui h1 {
-    font-size: 1.5rem;
-    color: #333;
-    line-height: 1.6rem;
+  /* FIXED: Transition moved here for smooth 'un-hover' */
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
 }
-
-.card-ui span{
-    font-size: 1.2rem;
-    color: #555;
-    font-weight: 600;
+.service-number {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #bbb;
+}
+/* UPDATED: h3 instead of h1 for SEO */
+.service-card h3 {
+  font-size: 1.5rem;
+  color: #333;
+  line-height: 1.6rem;
+  margin: 0;
+}
+.service-card p {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+}
+.service-price {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #555;
+  margin-top: auto; /* Pushes price to the bottom */
+}
+/* =========================================
+   4. Hover Effects
+   ========================================= */
+.service-card:hover {
+  /* Lift effect is cleaner than scale */
+  transform: translateY(-10px); 
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  border-color: #bbb;
+}
+/* =========================================
+   5. Responsive
+   ========================================= */
+@media (max-width: 768px) {
+  .cards-container {
+    grid-template-columns: 1fr;
+  }
+  .services {
+    margin: 10px;
+    padding: 30px 15px;
+  }
 }

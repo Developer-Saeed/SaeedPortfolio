@@ -1,236 +1,166 @@
+/* =========================================
+   1. CSS Variables
+   ========================================= */
+:root {
+  --color-primary: rgb(246, 90, 90);
+  --color-text-dark: #333333;
+  --color-bg-grey: rgb(195, 195, 195);
+}
+/* =========================================
+   2. Section Layout
+   ========================================= */
 .aboutme {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    padding: 50px 20px;
-    background-color: #ffffff;
-    border-radius: 0 0 2rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 50px 20px;
+  background-color: #ffffff;
+  border-radius: 0 0 2rem 2rem;
 }
-
-/* Bottom Layout */
-
+.aboutme-title {
+  font-size: 2.5rem;
+  position: relative;
+}
 .aboutme-bottom {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 50px;
-    margin-top: 50px;
-    width: 100%;
-    max-width: 1100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  margin-top: 50px;
+  width: 100%;
+  max-width: 1100px;
 }
-
-/* Image */
-
+/* =========================================
+   3. Image Styling
+   ========================================= */
 .aboutme-image {
-    width: 370px;
-    height: 350px;
-    background-color: #ffffff;
-    border-radius: 10%;
-    flex-shrink: 0;
+  /* Using max-width for responsiveness */
+  width: 100%;
+  max-width: 370px;
+  height: 350px;
+  flex-shrink: 0;
+  /* Shadow for depth */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
-
 .aboutme-image img {
-    width: 100%;
-    height: 100%;
-    border-radius: 10%;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px; /* Softer than 10% */
+  object-fit: cover;
 }
-
-/* Right Section */
-
+/* =========================================
+   4. Content & Skills
+   ========================================= */
 .aboutme-bottom-right {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
 }
-
-/* Paragraph */
-
 .aboutme-paragraph {
-    font-size: 1.2rem;
-    color: #333333;
-    line-height: 1.6;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  font-size: 1.2rem;
+  color: var(--color-text-dark);
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
-
-/* Skills Container */
-
 .aboutme-skills {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
 }
-
-/* Each Skill Row */
-
 .bar-section {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
 }
-
 .bar-section h3 {
-    font-size: 1rem;
-    font-weight: 600;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
 }
-
-/* Skill Bar */
-
+/* =========================================
+   5. Dynamic Skill Bars (New Logic)
+   ========================================= */
 .aboutme-skill {
-    position: relative;
-    width: 100%;
-    max-width: 500px;
-    background-color: rgb(195, 195, 195);
-    height: 1.2rem;
-    border-radius: 1rem;
-    overflow: hidden;
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  background-color: var(--color-bg-grey);
+  height: 10px; /* Thinner modern look */
+  border-radius: 1rem;
+  overflow: visible; /* Allows label to pop out */
 }
-
-/* Skill Fill */
-
-.aboutme-skill span {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    border-radius: 1rem;
+.skill-bar {
+  display: block;
+  height: 100%;
+  border-radius: 1rem;
+  position: relative;
+  /* Dynamic width is set via inline style in JSX */
 }
-
-/* Skill Widths */
-
-.htmlcss {
-    width: 60%;
+/* The Percentage Label */
+.skill-bar::after {
+  /* This gets the value from data-level in JSX */
+  content: attr(data-level);
+  position: absolute;
+  right: 0;
+  top: -22px; /* Sits above the bar */
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text-dark);
 }
-
-.javascript {
-    width: 90%;
-}
-
-.react {
-    width: 84%;
-}
-
-.nodejs {
-    width: 78%;
-}
-
-/* Percentage Labels */
-
-.aboutme-skill span::before {
-    position: absolute;
-    right: 8px;
-    top: -22px;
-    font-size: 0.9rem;
-    color: #000;
-}
-
-.htmlcss::before {
-    content: "60%";
-}
-
-.javascript::before {
-    content: "90%";
-}
-
-.react::before {
-    content: "84%";
-}
-
-.nodejs::before {
-    content: "78%";
-}
-
-/* ================= */
+/* =========================================
+   6. Responsive Design
+   ========================================= */
 /* Tablet */
-/* ================= */
-
 @media (max-width: 1024px) {
-
-    .aboutme-bottom {
-        gap: 30px;
-    }
-
-    .aboutme-image {
-        width: 300px;
-        height: 280px;
-    }
-
-    .aboutme-paragraph {
-        font-size: 1.1rem;
-    }
+  .aboutme-bottom {
+    gap: 30px;
+  }
+  .aboutme-image {
+    height: 300px;
+  }
+  .aboutme-paragraph {
+    font-size: 1.1rem;
+  }
 }
-
-/* ================= */
 /* Mobile */
-/* ================= */
-
 @media (max-width: 768px) {
-
-    .aboutme-bottom {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 40px;
-    }
-
-    .aboutme-image {
-        width: 220px;
-        height: 220px;
-    }
-
-    .aboutme-bottom-right {
-        width: 100%;
-        align-items: center;
-    }
-
-    .aboutme-paragraph {
-        font-size: 1rem;
-        width: 100%;
-    }
-
-    .aboutme-skills {
-        width: 100%;
-        align-items: stretch;
-    }
-
-    .bar-section {
-        width: 100%;
-        text-align: left;
-    }
-
-    .aboutme-skill {
-        width: 100%;
-        max-width: 100%;
-    }
+  .aboutme-bottom {
+    flex-direction: column-reverse; /* Image on bottom looks better on mobile usually, or keep column */
+    align-items: center;
+    text-align: center;
+    gap: 40px;
+  }
+  /* Center align content on mobile */
+  .aboutme-bottom-right {
+    align-items: center;
+  }
+  .bar-section {
+    align-items: center;
+  }
+  .aboutme-image {
+    width: 220px;
+    height: 220px;
+  }
+  .aboutme-paragraph {
+    font-size: 1rem;
+  }
 }
-
-/* ================= */
 /* Small Mobile */
-/* ================= */
-
 @media (max-width: 480px) {
-
-    .aboutme-title {
-        font-size: 2rem;
-    }
-
-    .aboutme-image {
-        width: 180px;
-        height: 180px;
-    }
-
-    .aboutme-paragraph {
-        font-size: 0.95rem;
-    }
-
-    .aboutme-skill span::before {
-        font-size: 0.8rem;
-        top: -18px;
-    }
+  .aboutme-title {
+    font-size: 2rem;
+  }
+  .aboutme-image {
+    width: 180px;
+    height: 180px;
+  }
+  .aboutme-paragraph {
+    font-size: 0.95rem;
+  }
 }
