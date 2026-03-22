@@ -1,103 +1,144 @@
+
+/* =========================================
+   1. CSS Variables (Theme & Standards)
+   ========================================= */
+:root {
+  --color-primary: rgb(246, 90, 90);
+  --color-bg-light: rgb(253, 253, 253);
+  --color-bg-dark: rgb(238, 238, 238);
+  --color-text-dark: #333;
+  --shadow-soft: 0 2px 10px rgba(0, 0, 0, 0.1);
+  --transition-speed: 0.3s;
+}
+/* =========================================
+   2. Header Container
+   ========================================= */
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 50px;
-    position: sticky;
-    top:0;
-    background-color: rgb(253, 253, 253);
-    z-index: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  position: sticky;
+  top: 0;
+  background-color: var(--color-bg-light);
+  z-index: 500; /* Ensures header stays above content */
+  box-shadow: var(--shadow-soft); /* Adds depth */
 }
-
-.menu-items {
-    display: flex;
-    gap: 20px;
-    list-style: none;
+/* =========================================
+   3. Desktop Navigation
+   ========================================= */
+.desktop-nav {
+  display: flex;
 }
-
-.menu-items li {
-    cursor: pointer;
-    font-size: 18px;
-    font-weight: 500;
+.nav-list {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
-
-.menu-items li:hover {
-    color: rgb(246, 90, 90);
+.nav-list li {
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
+  transition: color var(--transition-speed) ease;
 }
-
-.menu-btn {
-    display: none;
+.nav-list li:hover {
+  color: var(--color-primary);
 }
-
-
-/* MOBILE MENU */
-
-.mobile-menu {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 250px;
-    height: 100vh;
-    background: rgb(238, 238, 238);
-    padding: 30px;
-    transition: 0.3s ease;
-    border-radius: 2rem 0 0 1rem;
+/* Shared Styles for Buttons */
+.contact-btn,
+.menu-toggle-btn {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-size: 18px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: background-color var(--transition-speed) ease;
 }
-
-.mobile-menu.active {
-    right: 0;
+.contact-btn {
+  background-color: var(--color-primary);
+  color: white;
+  font-weight: 600;
 }
-
-.mobile-menu ul {
-    list-style: none;
-    margin-top: 30px;
+.contact-btn:hover {
+  opacity: 0.9;
 }
-
-.mobile-menu li {
-    margin-bottom: 20px;
+.menu-toggle-btn {
+  display: none; /* Hidden on desktop */
+  font-size: 24px;
 }
-
-
-.close-btn {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    font-size: 24px;
-    background: rgb(233, 233, 233);
-    padding: 0.8rem;
-    border: none;
-    border-radius: 10rem;
-    width: 37px;
-    height: 37px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-
-/* RESPONSIVE */
-
-@media (max-width: 768px) {
-
-    .menu-items,
-    .contact-btn {
-        display: none;
-    }
-
-    .menu-btn {
-        display: block;
-        font-size: 24px;
-        background: none;
-        border: none;
-    }
-}
-
-
+/* Active Link State */
 .active-menu-item {
-    color: rgb(246, 90, 90);
-    cursor: pointer;
-}   
-
-.menu-item-single {
-    cursor: pointer;
+  color: var(--color-primary);
+  border-bottom: 2px solid var(--color-primary);
+}
+/* =========================================
+   4. Mobile Navigation & Animation
+   ========================================= */
+/* Backdrop Overlay (Dims background when menu is open) */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition-speed) ease;
+  z-index: 600; /* Above header, below menu */
+}
+.backdrop.active {
+  opacity: 1;
+  visibility: visible;
+}
+/* Mobile Menu Container */
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 250px;
+  height: 100vh;
+  background: var(--color-bg-dark);
+  padding: 30px;
+  /* Performance: Use transform instead of 'right' for smooth 60fps animation */
+  transform: translateX(100%); 
+  transition: transform var(--transition-speed) ease-in-out;
+  border-radius: 2rem 0 0 1rem;
+  z-index: 700; /* Highest layer */
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
+}
+/* Open State (Triggered by JS class toggle) */
+.mobile-nav--open {
+  transform: translateX(0);
+}
+/* Mobile Menu Links */
+.mobile-nav ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 50px;
+}
+.mobile-nav li {
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: 500;
+}
+/* =========================================
+   5. Responsive Media Queries
+   ========================================= */
+@media (max-width: 768px) {
+  .header {
+    padding: 15px 20px; /* Reduce padding on small screens */
+  }
+  .desktop-nav,
+  .contact-btn {
+    display: none; /* Hide desktop links and contact button */
+  }
+  .menu-toggle-btn {
+    display: block; /* Show hamburger icon */
+  }
 }
