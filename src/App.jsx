@@ -3,7 +3,7 @@ import HeroSection from './components/HeroSection/HeroSection';
 import AboutMe from './components/AboutMe/AboutMe';
 import MyServices from './components/MyServices/MyServices';
 import MyLatestWork from './components/MyLatestWork/MyLatestWork';
-import Contact from './components/Contact/Contact';
+import Contact from "./components/Contact/Contact";
 const App = () => {
   return (
     <main>
